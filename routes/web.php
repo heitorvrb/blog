@@ -1,13 +1,16 @@
 <?php
 
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\PostController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', HomeController::class);
 
 Route::get('/about', function () {
-    return 'oi';
+    return 'Coming soon!';
 })->name('about');
+
+Route::get('/{slug}', PostController::class);
 
 // Route::get('/dashboard', function () {
 //     return Inertia::render('Dashboard');
