@@ -86,7 +86,7 @@ export default function Welcome({ posts }: PageProps<{ posts: any[] }>) {
                                         <div className="pt-3 sm:pt-5">
                                             <h2 className="text-xl font-semibold text-black dark:text-white">{post.title}</h2>
 
-                                            <p className="mt-4 text-sm/relaxed">{post.contents}</p>
+                                            <p className="mt-4 text-sm/relaxed">{post.subtitle}</p>
                                         </div>
                                     </a>
                                 )}
