@@ -10,10 +10,10 @@ class PostController extends Controller
 {
     public function __invoke(string $slug): Response|string
     {
-        return Post::where('slug', $slug)->firstOrFail();
+        $post = Post::where('slug', $slug)->firstOrFail();
 
-        // return Inertia::render('Welcome', [
-        //     'posts' => $posts,
-        // ]);
+        return Inertia::render("Posts/$post->page", [
+            'post' => $post,
+        ]);
     }
 }
