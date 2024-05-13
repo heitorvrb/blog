@@ -76,6 +76,7 @@ export default function CheapestSplitKeyboard({ post }: PageProps<{ post: any }>
                                         <Paragraph>
                                             <Image
                                                 src='/setup1.jpg'
+                                                sub='First iteration. Not the best, but already better.'
                                             />
                                         </Paragraph>
                                         <Paragraph>
