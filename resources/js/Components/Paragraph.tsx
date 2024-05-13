@@ -4,7 +4,7 @@ type Props = { className?: string, children: ReactNode }
 
 export function Paragraph({ className = '', children, ...props }: Props) {
     return (
-        <p
+        <div
             {...props}
             className={
                 'mt-4 text-xl/relaxed' +
@@ -13,6 +13,6 @@ export function Paragraph({ className = '', children, ...props }: Props) {
             }
         >
             {children}
-        </p>
+        </div>
     );
 }
