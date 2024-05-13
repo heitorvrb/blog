@@ -65,6 +65,7 @@ export default function CheapestSplitKeyboard({ post }: PageProps<{ post: any }>
                                         <Paragraph>
                                             <Image
                                                 src='/ditix.png'
+                                                sub='Not for programmers?'
                                             />
                                         </Paragraph>
                                         <Paragraph>
@@ -109,7 +110,8 @@ export default function CheapestSplitKeyboard({ post }: PageProps<{ post: any }>
                                         </Paragraph>
                                         <Paragraph>
                                             <Image
-                                                src='/setup1.jpg'
+                                                src='/setup2.jpg'
+                                                sub="The experiment - just don't look at the keys and it'll be fine."
                                             />
                                         </Paragraph>
                                         <Paragraph>
@@ -123,7 +125,8 @@ export default function CheapestSplitKeyboard({ post }: PageProps<{ post: any }>
                                         </Paragraph>
                                         <Paragraph>
                                             <Image
-                                                src='/setup1.jpg'
+                                                src='/setup3.jpg'
+                                                sub="It's not much, but it's honest work. PS.: I'm still testing the trackball mouse."
                                             />
                                         </Paragraph>
                                         <Paragraph>
