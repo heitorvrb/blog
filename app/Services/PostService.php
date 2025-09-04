@@ -30,7 +30,8 @@ class PostService
 
     public function getPostBySlug(string $slug)
     {
-        return null;
+        $post = $this->githubService->getPostBySlug($slug);
+        return $post;
     }
 
     private function getMarkdownTitle(string $download_url): string

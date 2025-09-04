@@ -33,7 +33,7 @@
                 <ul class="mt-6 space-y-4">
                     @foreach ($posts as $post)
                         <li class="border-b pb-2">
-                            <a href="{{ url('slug') }}" class="text-lg font-semibold hover:underline">
+                            <a href="{{ url($post['slug']) }}" class="text-lg font-semibold hover:underline">
                                 {{ $post['title'] }}
                             </a>
                             <div class="text-xs text-gray-500 dark:text-gray-400">

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Services\PostService;
+use Illuminate\Mail\Markdown;
 
 class PostController extends Controller
 {
@@ -22,6 +23,9 @@ class PostController extends Controller
 
     public function show(string $slug)
     {
-        return "show method for: {$slug}";
+        $post = $this->postService->getPostBySlug($slug);
+        $markdown = base64_decode($post->content);
+        $html = Markdown::parse($markdown);
+        return view('post', compact('html'));
     }
 }
