@@ -3,6 +3,7 @@
 namespace App\Services;
 
 use Illuminate\Support\Collection;
+use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Http;
 
 class GithubService
@@ -10,6 +11,7 @@ class GithubService
     private string $username;
     private string $repo;
     private string $token;
+    private string $locale;
 
     public function __construct()
     {
@@ -17,6 +19,7 @@ class GithubService
         $this->username = $config['username'];
         $this->repo = $config['repo'];
         $this->token = $config['token'];
+        $this->locale = App::getLocale();
     }
 
     public function getPosts(): Collection
@@ -24,7 +27,7 @@ class GithubService
         $posts = Http::withHeaders([
             'Authorization' => "token {$this->token}",
             'Accept' => 'application/vnd.github.v3+json',
-        ])->get("https://api.github.com/repos/{$this->username}/{$this->repo}/contents/")
+        ])->get("https://api.github.com/repos/{$this->username}/{$this->repo}/contents/{$this->locale}")
             ->throw()
             ->collect();
 
@@ -36,7 +39,7 @@ class GithubService
         $post = Http::withHeaders([
             'Authorization' => "token {$this->token}",
             'Accept' => 'application/vnd.github.v3+json',
-        ])->get("https://api.github.com/repos/{$this->username}/{$this->repo}/contents/{$slug}")
+        ])->get("https://api.github.com/repos/{$this->username}/{$this->repo}/contents/{$this->locale}/{$slug}")
             ->throw()
             ->object();
 
