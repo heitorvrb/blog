@@ -23,7 +23,8 @@ class PostService
                     'slug' => $item['name'],
                     'download_url' => $item['download_url'],
                 ];
-            });
+            })
+            ->sortByDesc('date');
 
         return $posts;
     }
