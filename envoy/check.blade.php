@@ -24,26 +24,6 @@ fi
 EOF
 @endtask
 
-@task('deploy')
-bash -eu << 'EOF'
-cd {{ $projectDir }}
-
-git pull {{ $remote }} {{ $branch }}
-composer install --no-dev --prefer-dist --no-interaction --optimize-autoloader
-npm run build
-php artisan optimize
-
-curl -fsS \
-    -o /dev/null \
-    -w '' \
-    "https://api.telegram.org/bot{{ $bot }}/sendMessage" \
-    --data-urlencode "chat_id={{ $chat }}" \
-    --data-urlencode "text=Deploy OK" \
-    > /dev/null 2>&1
-
-@endtask
-
-
 @error
-    @telegram($bot, $chat, '🟥 Error during deploy!')
+    @telegram($bot, $chat, 'Error during check!')
 @enderror
