@@ -13,6 +13,9 @@
                             class="text-lg font-semibold hover:underline">
                             {{ $post['title'] }}
                         </a>
+                        <p class="text-sm text-gray-500 dark:text-gray-400">
+                            {{ Str::limit($post['subtitle'], 100) }}
+                        </p>
                         <div class="text-xs text-gray-500 dark:text-gray-400">
                             {{ app()->getLocale() === 'pt'
                                 ? $post['date']->locale('pt')->isoFormat('DD MMM YYYY')
