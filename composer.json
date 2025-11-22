@@ -58,6 +58,14 @@
         "test": [
             "@php artisan config:clear --ansi",
             "@php artisan test"
+        ],
+
+        "check": [
+            "envoy run --path=envoy/check.blade.php check"
+        ],
+
+        "deploy": [
+            "envoy run --path=envoy/deploy.blade.php deploy"
         ]
     },
     "extra": {
