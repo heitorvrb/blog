@@ -1,14 +1,13 @@
 <x-layout>
 
-    <div class="flex max-w-[335px] w-full flex-col-reverse lg:max-w-4xl lg:flex-row">
+    <div class="w-full lg:max-w-4xl">
         <div
-            class="text-[13px] leading-[20px] flex-1 p-6 pb-12 lg:p-20 bg-white dark:bg-[#161615] dark:text-[#EDEDEC] shadow-[inset_0px_0px_0px_1px_rgba(26,26,0,0.16)] dark:shadow-[inset_0px_0px_0px_1px_#fffaed2d] rounded-bl-lg rounded-br-lg lg:rounded-tl-lg lg:rounded-br-none">
-            <h1 class="mb-6 font-medium text-2xl">Heitor's Blog</h1>
-            <p class="mb-2 text-[#706f6c] dark:text-[#A1A09A]">{{ __('messages.latest-posts') }}:</p>
-
-            <ul class="mt-6 space-y-4">
+            class="p-6 pb-12 lg:p-20 rounded-lg bg-white dark:bg-[#161615] dark:text-[#EDEDEC] shadow-[inset_0px_0px_0px_1px_rgba(26,26,0,0.16)] dark:shadow-[inset_0px_0px_0px_1px_#fffaed2d]">
+            <h1 class="mb-6 text-2xl">Heitor's Blog</h1>
+            <p class="mb-4 text-[13px] text-gray-500 dark:text-gray-400">{{ __('messages.latest-posts') }}:</p>
+            <ul class="space-y-4">
                 @foreach ($posts as $post)
-                    <li class="border-b pb-2">
+                    <li class="flex flex-col gap-1 border-b pb-2">
                         <a href="{{ route('post', ['locale' => app()->getLocale(), 'slug' => $post['slug']]) }}"
                             class="text-lg font-semibold hover:underline">
                             {{ $post['title'] }}
@@ -21,9 +20,6 @@
                                 ? $post['date']->locale('pt')->isoFormat('DD MMM YYYY')
                                 : $post['date']->isoFormat('MMM D, YYYY') }}
                         </div>
-                        <p class="mt-1 text-sm text-[#706f6c] dark:text-[#A1A09A]">
-                            {{ Str::limit($post['name'], 100) }}
-                        </p>
                     </li>
                 @endforeach
             </ul>
